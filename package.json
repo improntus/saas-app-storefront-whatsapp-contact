@@ -1,5 +1,5 @@
 {
-  "name": "saas-app-storefront-whatsapp-contact",
+  "name": "@improntus/saas-app-storefront-whatsapp-contact",
   "version": "1.0.0",
   "description": "WhatsApp contact block and FAB for AEM Edge Delivery Services + Adobe Commerce. Installable drop-in with popup and GraphQL config.",
   "author": "Improntus Team <mauro@improntus.com>",
