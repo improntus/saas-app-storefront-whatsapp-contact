@@ -17,7 +17,8 @@
     "adobe-commerce",
     "edge-delivery-services",
     "whatsapp",
-    "storefront"
+    "adobe-commerce-saas",
+    "improntus"
   ],
   "files": [
     "assets",
