@@ -1,6 +1,6 @@
 # storefront-whatsapp-contact
 
-npm package that adds a floating WhatsApp button (FAB) and contact popup to **AEM Edge Delivery Services + Adobe Commerce** projects (e.g. those based on [aem-boilerplate-commerce](https://github.com/hlxsites/aem-boilerplate-commerce)). Installation automatically copies blocks, scripts, and icons into your project; you only need to configure the GraphQL endpoint.
+npm package that adds a floating WhatsApp button (FAB) and contact popup to **AEM Edge Delivery Services + Adobe Commerce Saas** projects (e.g. those based on [aem-boilerplate-commerce](https://github.com/hlxsites/aem-boilerplate-commerce)). Installation automatically copies blocks, scripts, and icons into your project; you only need to configure the GraphQL endpoint.
 
 ## Requirements
 
@@ -16,14 +16,42 @@ From your project root:
 npm install improntus/saas-app-storefront-whatsapp-contact
 ```
 
-The package’s `postinstall` script will:
+The package’s **postinstall** script runs automatically when the package is installed. You do not need to run any extra steps—blocks, scripts, and icons are copied into your project as part of `npm install`.
+
+It will:
 
 - Copy `blocks/whatsapp-contact/` (JS + CSS) into your `blocks/` folder.
 - Copy `scripts/whatsapp-config.js` and `scripts/initializers/whatsapp.js` into your project.
 - Copy the `whatsapp.svg` and `whatsapp-contact.svg` icons into your `icons/` folder.
 - Add the WhatsApp initialization call to `scripts/initializers/index.js` if it is not already there.
 
-No manual file copying is required. After installing, configure the **`whatsapp.graphql-endpoint`** parameter (see below).
+After installing, configure the **`whatsapp.graphql-endpoint`** parameter (see below).
+
+#### Configuring the GraphQL endpoint from the console
+
+From your project root, you can run an interactive command that asks for the endpoint URL and writes it into `config.json` and `demo-config.json`:
+
+```bash
+npx storefront-whatsapp-contact-configure
+```
+
+You will be prompted to enter the **WhatsApp app URL** (base URL only, e.g. `https://XXXXX-whatsappcontact.adobeioruntime.net`). The script automatically appends `/api/v1/web/whatsappcontact/graphql` to build the full GraphQL endpoint and writes it to `config.json` and `demo-config.json` under `public.default.whatsapp["graphql-endpoint"]`. You can run this command again anytime to change the endpoint.
+
+#### Running the install script manually
+
+If you need to re-run the install (e.g. you removed files, or the postinstall did not run), you can run it manually from your project root:
+
+```bash
+npx storefront-whatsapp-contact
+```
+
+Or using Node directly:
+
+```bash
+node node_modules/@improntus/saas-app-storefront-whatsapp-contact/scripts/install.js
+```
+
+Both commands copy the same files into your project and, if needed, add the WhatsApp import to `scripts/initializers/index.js`.
 
 ## Configuration: `whatsapp.graphql-endpoint`
 
@@ -147,26 +175,6 @@ To show the popup on all pages, place the `whatsapp-contact` block in a global f
 | `assets/icons/whatsapp-contact.svg`    | `icons/whatsapp-contact.svg`            |
 
 In addition, the line that imports and initializes WhatsApp is added to `scripts/initializers/index.js` if it did not already exist.
-
-## Publishing to npm
-
-To version this package in a repository and publish it to npm:
-
-1. Copy the `storefront-whatsapp-contact` folder to a new repository.
-2. In that repo, fill in the `repository`, `author`, and optionally `publishConfig` fields in `package.json`.
-3. Run `npm version patch` (or minor/major) and `npm publish`.
-
-Consumers can then install with:
-
-```bash
-npm install storefront-whatsapp-contact
-```
-
-or, if you use a scope:
-
-```bash
-npm install @your-org/storefront-whatsapp-contact
-```
 
 ## Author
 

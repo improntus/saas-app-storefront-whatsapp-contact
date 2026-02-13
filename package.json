@@ -24,6 +24,10 @@
     "scripts",
     "README.md"
   ],
+  "bin": {
+    "storefront-whatsapp-contact": "scripts/install.js",
+    "storefront-whatsapp-contact-configure": "scripts/configure.js"
+  },
   "scripts": {
     "postinstall": "node scripts/install.js"
   },
