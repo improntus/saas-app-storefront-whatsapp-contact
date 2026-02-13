@@ -1,0 +1,30 @@
+{
+  "name": "saas-app-storefront-whatsapp-contact",
+  "version": "1.0.0",
+  "description": "WhatsApp contact block and FAB for AEM Edge Delivery Services + Adobe Commerce. Installable drop-in with popup and GraphQL config.",
+  "author": "Improntus Team <mauro@improntus.com>",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/improntus/saas-app-storefront-whatsapp-contact.git"
+  },
+  "bugs": {
+    "url": "https://github.com/improntus/saas-app-storefront-whatsapp-contact/issues"
+  },
+  "homepage": "https://github.com/improntus/saas-app-storefront-whatsapp-contact#readme",
+  "keywords": [
+    "aem",
+    "adobe-commerce",
+    "edge-delivery-services",
+    "whatsapp",
+    "storefront"
+  ],
+  "files": [
+    "assets",
+    "scripts",
+    "README.md"
+  ],
+  "scripts": {
+    "postinstall": "node scripts/install.js"
+  }
+}
